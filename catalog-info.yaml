@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "test-cicd"
+  description: "Test CICD"
+  tags:
+    - java
+  links:
+    - url: https://devspaces.apps.cluster-example.com/?storageType=per-workspace#https://github.com/croway/quarkus-test-cicd-service
+      title: OpenShift Dev Spaces
+      icon: web
+    - url: https://hawtio-online.apps.cluster-example.com/online/discover?namespace=system=quarkus
+      title: HawtIO
+      icon: web
+  annotations:
+    github.com/project-slug: "croway/quarkus-test-cicd-service"
+    backstage.io/kubernetes-id: "test-cicd"
+    backstage.io/kubernetes-label-selector: "system=quarkus"
+    janus-idp.io/tekton : "test-cicd-service"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/backstage-admins"
+  system: system:default/quarkus
+  providesApis: 
+    - quarkus-final
